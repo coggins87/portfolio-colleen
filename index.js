@@ -8,11 +8,11 @@ function main() {
   handleNavBurger();
 
   handleToggleResume();
-
+  window.addEventListener("message", handleMessage())
+  window.localStorage.setItem("californiaResident", "yes")
 }
 
-window.addEventListener("message", handleMessage())
-window.localStorage.setItem("californiaResident", "yes")
+
 $(main);
 
 function handleMessage(){
