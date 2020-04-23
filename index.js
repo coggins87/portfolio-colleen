@@ -28,12 +28,9 @@ function main() {
       action: "get",
       key: "californiaResident"
     });
-});
+  }
 
-function handleIframeLoad(){
- 
-}
-}
+})
 
 
 function handleMessage(event){
