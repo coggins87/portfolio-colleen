@@ -18,17 +18,20 @@ function main() {
 
   $(main);
 
-
-function handleIframeLoad(){
-  var win = $('#iframe').get(0).contentWindow;
+  $(document).ready(function() {
+    var win = $('#iframe').get(0).contentWindow;
 
   
-  if(win){
-    console.log(win)
-  win.postMessage({
-    action: "get",
-    key: "californiaResident"
-  });
+    if(win){
+      console.log(win)
+    win.postMessage({
+      action: "get",
+      key: "californiaResident"
+    });
+});
+
+function handleIframeLoad(){
+ 
 }
 }
 
