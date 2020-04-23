@@ -8,7 +8,7 @@ function main() {
   handleNavBurger();
 
   handleToggleResume();
-  window.addEventListener("message", handleMessage())
+  window.addEventListener("message", handleMessage)
   window.localStorage.setItem("californiaResident", "yes")
 }
 
