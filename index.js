@@ -8,9 +8,38 @@ function main() {
   handleNavBurger();
 
   handleToggleResume();
+
 }
 
+window.addEventListener("message", handleMessage())
+window.localStorage.setItem("californiaResident", "yes")
 $(main);
+
+function handleMessage(){
+  console.log(event.origin);
+  const { action, key, value } = event.data;
+  console.log("Message handler", action, key);
+  // if (!domains.includes(event.origin))
+  //   return;
+  if (action !== undefined && key !== undefined) {
+    if (action == "save") {
+      window.localStorage.setItem(key, JSON.stringify(value));
+    } else if (action == "get") {
+      let sentvalue = window.localStorage.getItem(key);
+      event.source.postMessage(
+        {
+          action: "returnData",
+          key,
+          sentvalue
+        },
+        "*"
+      );
+    } else if (action == "returnData") {
+      let value2 = window.localStorage.getItem(key);
+      console.log("FROM RETURN DATA", key, value2);
+    }
+  }
+}
 
 function handleToggleResume() {
   $("#view-resume-btn").click(function() {
