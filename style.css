@@ -213,9 +213,7 @@ iframe {
   display: block;
 }
 
-iframe {
-  display: none;
-}
+
 
 @media all and (min-width: 801px) {
   #home-top {

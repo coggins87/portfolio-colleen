@@ -11,10 +11,13 @@ function main() {
   window.addEventListener("message", handleMessage)
   window.localStorage.setItem("californiaResident", "yes")
   let iframe = document.getElementById("iframe")
+  console.log(iframe)
+  if(iframe){
   iframe.postMessage({
     action: "get",
     key: "californiaResident"
   });
+}
 }
 
 
