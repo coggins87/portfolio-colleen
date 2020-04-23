@@ -10,6 +10,10 @@ function main() {
   handleToggleResume();
   window.addEventListener("message", handleMessage)
   window.localStorage.setItem("californiaResident", "yes")
+  document.getElementById("iframe").postMessage({
+    action: "get",
+    key: "californiaResident"
+  });
 }
 
 
