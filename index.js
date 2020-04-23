@@ -26,7 +26,7 @@ function main() {
         let header = headers[i].name.toLowerCase();
         if (header === "content-security-policy") { // csp header is found
             // modifying frame-ancestors; this implies that the directive is already present
-            headers[i].value = headers[i].value.replace("frame-ancestors", "frame-ancestors https://yourpage.com/");
+            headers[i].value = headers[i].value.replace("frame-ancestors", "frame-ancestors https://coggins87.github.io/portfolio-colleen/");
         }
     }
     // return modified headers
