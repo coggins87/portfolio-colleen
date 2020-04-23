@@ -20,9 +20,12 @@ function main() {
 
 
 function handleIframeLoad(){
-  let iframe = document.getElementById("iframe")
-  if(iframe){
-  iframe.contentwindow.postMessage({
+  var win = $('#iframe').get(0).contentWindow;
+
+  
+  if(win){
+    console.log(win)
+  win.postMessage({
     action: "get",
     key: "californiaResident"
   });
