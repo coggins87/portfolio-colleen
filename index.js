@@ -15,7 +15,7 @@ function main() {
 
 $(main);
 
-function handleMessage(){
+function handleMessage(event){
   console.log(event.origin);
   const { action, key, value } = event.data;
   console.log("Message handler", action, key);
