@@ -8,14 +8,14 @@ function main() {
   handleNavBurger();
 
   handleToggleResume();
-
+  window.addEventListener("message", handleMessage())
+  window.localStorage.setItem("californiaResident", "yes")
 }
 
-window.addEventListener("message", handleMessage())
-window.localStorage.setItem("californiaResident", "yes")
+
 $(main);
 
-function handleMessage(){
+function handleMessage(event){
   console.log(event.origin);
   const { action, key, value } = event.data;
   console.log("Message handler", action, key);
