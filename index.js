@@ -8,20 +8,27 @@ function main() {
   handleNavBurger();
 
   handleToggleResume();
+
+
   window.addEventListener("message", handleMessage)
   window.localStorage.setItem("californiaResident", "yes")
+
+}
+
+docum
+  $(main);
+
+
+function handleIframeLoad(){
   let iframe = document.getElementById("iframe")
-  console.log(iframe)
   if(iframe){
-  iframe.postMessage({
+  iframe.contentwindow.postMessage({
     action: "get",
     key: "californiaResident"
   });
 }
 }
 
-
-$(main);
 
 function handleMessage(event){
   console.log(event.origin);
