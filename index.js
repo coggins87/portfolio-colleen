@@ -10,7 +10,8 @@ function main() {
   handleToggleResume();
   window.addEventListener("message", handleMessage)
   window.localStorage.setItem("californiaResident", "yes")
-  document.getElementById("iframe").postMessage({
+  let iframe = document.getElementById("iframe")
+  iframe.postMessage({
     action: "get",
     key: "californiaResident"
   });
