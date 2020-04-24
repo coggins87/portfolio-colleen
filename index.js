@@ -29,8 +29,8 @@ let item  = window.localStorage.getItem('californiaResident')
 
  })
 
- $(window).on("message", function(e) {
-  alert(e.data); // Alerts "this is a message"
+ $(window).on("message", function(event) {
+  alert(event.data); // Alerts "this is a message"
   console.log('colleen', event.origin);
   const { action, key, value } = event.data;
   console.log("Message handler", event.data);
