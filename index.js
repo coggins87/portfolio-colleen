@@ -18,7 +18,7 @@ function main() {
 }
 $(main)
 
-$( window ).on( "load", function() { 
+$( button ).on( "click", function() { 
  
 console.log('colleen', document.getElementById("iframe"))
 let item  = window.localStorage.getItem('californiaResident')
