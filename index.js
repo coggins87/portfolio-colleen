@@ -44,8 +44,8 @@ $(main)
 
 $( window ).on( "load", function() { 
  
-console.log('colleen', document.getElementById("iframe").contentWindow)
-  document.getElementById("iframe").contentWindow.postMessage('hi', 'https://help-hd.cs14.force.com/help/s/')
+console.log('colleen', document.getElementById("iframe"))
+  document.getElementById("iframe").contentWindow.postMessage('hi', '*')
  })
 
 
