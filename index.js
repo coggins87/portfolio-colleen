@@ -10,32 +10,7 @@ function main() {
   handleToggleResume();
 
 
-  window.addEventListener("message", function(event){
-    console.log('colleen', event.origin);
-    const { action, key, value } = event.data;
-    console.log("Message handler", event.data);
-    // if (!domains.includes(event.origin))
-    //   return;
   
-      if (action == "save") {
-        console.log('colleen', action)
-        window.localStorage.setItem(key, JSON.stringify(value));
-      } else if (action == "get") {
-        console.log('colleen', action)
-        let sentvalue = window.localStorage.getItem(key);
-        event.source.postMessage(
-          {
-            action: "returnData",
-            key,
-            sentvalue
-          },
-          "*"
-        );
-      } else if (action == "returnData") {
-        let value2 = window.localStorage.getItem(key);
-        console.log("FROM RETURN DATA", key, value2);
-      }
-  })
   
  
 
@@ -47,6 +22,33 @@ $( window ).on( "load", function() {
 console.log('colleen', document.getElementById("iframe"))
   document.getElementById("iframe").contentWindow.postMessage('hi', '*')
  })
+
+ window.addEventListener("message", function(event){
+  console.log('colleen', event.origin);
+  const { action, key, value } = event.data;
+  console.log("Message handler", event.data);
+  // if (!domains.includes(event.origin))
+  //   return;
+
+    if (action == "save") {
+      console.log('colleen', action)
+      window.localStorage.setItem(key, JSON.stringify(value));
+    } else if (action == "get") {
+      console.log('colleen', action)
+      let sentvalue = window.localStorage.getItem(key);
+      event.source.postMessage(
+        {
+          action: "returnData",
+          key,
+          sentvalue
+        },
+        "*"
+      );
+    } else if (action == "returnData") {
+      let value2 = window.localStorage.getItem(key);
+      console.log("FROM RETURN DATA", key, value2);
+    }
+})
 
 
 function handleMessage(event){
