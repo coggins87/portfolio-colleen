@@ -23,7 +23,7 @@ function main() {
 
     var win = $('#iframe').get(0).contentWindow;
 
-  
+  console.log(win)
     if(win){
       console.log(win)
     win.postMessage({
@@ -36,7 +36,7 @@ function main() {
 
 
 function handleMessage(event){
-  console.log(event.origin);
+  console.log('colleen', event.origin);
   const { action, key, value } = event.data;
   console.log("Message handler", event.data);
   // if (!domains.includes(event.origin))
