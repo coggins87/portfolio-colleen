@@ -23,13 +23,10 @@ function main() {
 
     var win = $('#iframe').get(0).contentWindow;
 
-  console.log(win)
+
     if(win){
-      console.log(win)
-    win.postMessage({
-      action: "get",
-      key: "californiaResident"
-    }, '*');
+     
+    win.postMessage('hi', '*');
   }
 
 })
