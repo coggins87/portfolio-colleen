@@ -20,7 +20,19 @@ function main() {
   $(document).ready(function() {
 
 let iframe = document.getElementById("iframe")
-iframe.addEventListener("message", function(e){
+window.addEventListener("message", handleMessage)
+
+  
+
+    
+   
+    iframe.contentWindow.postMessage('hi', '*');
+  
+
+})
+
+
+function handleMessage(event){
   console.log('colleen', event.origin);
   const { action, key, value } = event.data;
   console.log("Message handler", event.data);
@@ -45,19 +57,8 @@ iframe.addEventListener("message", function(e){
       let value2 = window.localStorage.getItem(key);
       console.log("FROM RETURN DATA", key, value2);
     }
-
-})
-
-    var win = $('#iframe').get(0).contentWindow;
-
-    
-    if(win){
-     console.log(win)
-    win.postMessage('hi', '*');
-  }
-
-})
-
+  
+}
 
 function handleToggleResume() {
   $("#view-resume-btn").click(function() {
