@@ -19,7 +19,10 @@ function main() {
 
   $(document).ready(function() {
 
-document.getElementById("iframe").addEventListener("message", handleMessage)
+let iframe = document.getElementById("iframe")
+console.log(iframe)
+iframe.addEventListener("message", handleMessage)
+
     var win = $('#iframe').get(0).contentWindow;
 
     
