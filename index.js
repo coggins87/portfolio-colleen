@@ -41,10 +41,12 @@ function handleMessage(event){
   console.log("Message handler", event.data);
   // if (!domains.includes(event.origin))
   //   return;
-  if (action !== undefined && key !== undefined) {
+
     if (action == "save") {
+      console.log('colleen', action)
       window.localStorage.setItem(key, JSON.stringify(value));
     } else if (action == "get") {
+      console.log('colleen', action)
       let sentvalue = window.localStorage.getItem(key);
       event.source.postMessage(
         {
@@ -58,7 +60,7 @@ function handleMessage(event){
       let value2 = window.localStorage.getItem(key);
       console.log("FROM RETURN DATA", key, value2);
     }
-  }
+  
 }
 
 function handleToggleResume() {
