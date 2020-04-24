@@ -37,9 +37,8 @@ function main() {
 
 function handleMessage(event){
   console.log(event.origin);
-  console.log(event.data)
   const { action, key, value } = event.data;
-  console.log("Message handler", action, key);
+  console.log("Message handler", event.data);
   // if (!domains.includes(event.origin))
   //   return;
   if (action !== undefined && key !== undefined) {
