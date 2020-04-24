@@ -25,7 +25,7 @@ function main() {
 
 
     if(win){
-     
+     console.log(win)
     win.postMessage('hi', '*');
   }
 
