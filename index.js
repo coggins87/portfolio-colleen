@@ -29,7 +29,7 @@ function main() {
     win.postMessage({
       action: "get",
       key: "californiaResident"
-    });
+    }, '*');
   }
 
 })
