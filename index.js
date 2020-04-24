@@ -10,7 +10,8 @@ function main() {
   handleToggleResume();
 
 
-  
+  window.localStorage.setItem("californiaResident", "yes")
+  window.localStorage.setItem("trackingConsentGiven", "yes")
   
  
 
@@ -20,36 +21,41 @@ $(main)
 $( window ).on( "load", function() { 
  
 console.log('colleen', document.getElementById("iframe"))
-  document.getElementById("iframe").contentWindow.postMessage('hi', '*')
+let item  = window.localStorage.getItem('californiaResident')
+  document.getElementById("iframe").contentWindow.postMessage({"californiaResident": item}, '*')
+  let item2  = window.localStorage.getItem('trackingConsentGiven')
 
-  window.addEventListener("message", function(event){
-    console.log('colleen', event.origin);
-    const { action, key, value } = event.data;
-    console.log("Message handler", event.data);
-    // if (!domains.includes(event.origin))
-    //   return;
-  
-      if (action == "save") {
-        console.log('colleen', action)
-        window.localStorage.setItem(key, JSON.stringify(value));
-      } else if (action == "get") {
-        console.log('colleen', action)
-        let sentvalue = window.localStorage.getItem(key);
-        event.source.postMessage(
-          {
-            action: "returnData",
-            key,
-            sentvalue
-          },
-          "*"
-        );
-      } else if (action == "returnData") {
-        let value2 = window.localStorage.getItem(key);
-        console.log("FROM RETURN DATA", key, value2);
-      }
-  })
-  
+  document.getElementById("iframe").contentWindow.postMessage({"trackingConsentGiven": item2}, '*')
+
  })
+
+ $(window).on("message", function(e) {
+  alert(e.data); // Alerts "this is a message"
+  console.log('colleen', event.origin);
+  const { action, key, value } = event.data;
+  console.log("Message handler", event.data);
+  // if (!domains.includes(event.origin))
+  //   return;
+
+    if (action == "save") {
+      console.log('colleen', action)
+      window.localStorage.setItem(key, JSON.stringify(value));
+    } else if (action == "get") {
+      console.log('colleen', action)
+      let sentvalue = window.localStorage.getItem(key);
+      event.source.postMessage(
+        {
+          action: "returnData",
+          key,
+          sentvalue
+        },
+        "*"
+      );
+    } else if (action == "returnData") {
+      let value2 = window.localStorage.getItem(key);
+      console.log("FROM RETURN DATA", key, value2);
+    }
+});
 
  
 
