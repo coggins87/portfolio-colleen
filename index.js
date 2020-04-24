@@ -13,16 +13,15 @@ function main() {
 
   window.localStorage.setItem("californiaResident", "yes")
 
+  document.getElementById("iframe").contentWindow.postMessage('hi', '*')
 }
 
 
-  $(main);
+
 
   $(document).ready(function() {
 
-let iframe = document.getElementById("iframe")
-
-    iframe.contentWindow.postMessage('hi', '*');
+$(main);
   
 
 })
