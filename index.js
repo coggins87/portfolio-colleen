@@ -9,6 +9,7 @@ function main() {
 
   handleToggleResume();
 
+  window.addEventListener("message", handleMessage)
 
   window.localStorage.setItem("californiaResident", "yes")
 
@@ -20,12 +21,7 @@ function main() {
   $(document).ready(function() {
 
 let iframe = document.getElementById("iframe")
-window.addEventListener("message", handleMessage)
 
-  
-
-    
-   
     iframe.contentWindow.postMessage('hi', '*');
   
 
