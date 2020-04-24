@@ -10,16 +10,16 @@ function main() {
   handleToggleResume();
 
 
-
+  window.addEventListener("message", handleMessage)
+  
+  window.localStorage.setItem("californiaResident", "yes")
  
 
 }
 $(main)
 
 $( window ).on( "load", function() { 
-  window.addEventListener("message", handleMessage)
-  
-  window.localStorage.setItem("californiaResident", "yes")
+ 
 
   document.getElementById("iframe").contentWindow.postMessage('hi', 'https://help-hd.cs14.force.com/help/s/')
  })
