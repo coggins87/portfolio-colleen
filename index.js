@@ -17,7 +17,7 @@ function main() {
 $(main)
 
 $( window ).on( "load", function() { 
-  $(window).addEventListener("message", handleMessage)
+  window.addEventListener("message", handleMessage)
   
   window.localStorage.setItem("californiaResident", "yes")
 
