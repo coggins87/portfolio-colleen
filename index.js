@@ -30,6 +30,7 @@ let item  = window.localStorage.getItem('californiaResident')
  })
 
  $(window).on("message onmessage", function(event) {
+   console.log(event)
   alert(event.originalEvent.data); // Alerts "this is a message"
   console.log('colleen', event.originalEvent.origin);
   console.log("Message handler", event.originalEvent.data);
