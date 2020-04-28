@@ -10,62 +10,62 @@ function main() {
   handleToggleResume();
 
 
-  window.localStorage.setItem("californiaResident", "yes")
-  window.localStorage.setItem("trackingConsentGiven", "yes")
+  // window.localStorage.setItem("californiaResident", "yes")
+  // window.localStorage.setItem("trackingConsentGiven", "yes")
   
  
 
 }
 $(main)
 
-$(document).on( "click", function() { 
+// $(document).on( "click", function() { 
  
-console.log('colleen', document.getElementById("iframe"))
-let item  = window.localStorage.getItem('californiaResident')
-  document.getElementById("iframe").contentWindow.postMessage({"californiaResident": item}, '*')
-  let item2  = window.localStorage.getItem('trackingConsentGiven')
+// console.log('colleen', document.getElementById("iframe"))
+// let item  = window.localStorage.getItem('californiaResident')
+//   document.getElementById("iframe").contentWindow.postMessage({"californiaResident": item}, '*')
+//   let item2  = window.localStorage.getItem('trackingConsentGiven')
 
-  document.getElementById("iframe").contentWindow.postMessage({"trackingConsentGiven": item2}, '*')
+//   document.getElementById("iframe").contentWindow.postMessage({"trackingConsentGiven": item2}, '*')
 
- })
+//  })
 
- $(window).on("message onmessage", function(event) {
-   console.log(event)
-  alert(event.originalEvent.data); // Alerts "this is a message"
-  console.log('colleen', event.originalEvent.origin);
-  console.log("Message handler", event.originalEvent.data);
+//  $(window).on("message onmessage", function(event) {
+//    console.log(event)
+//   alert(event.originalEvent.data); // Alerts "this is a message"
+//   console.log('colleen', event.originalEvent.origin);
+//   console.log("Message handler", event.originalEvent.data);
 
-  const { action, key, value } = event.originalEvent.data;
-  // if (!domains.includes(event.origin))
-  //   return;
+//   const { action, key, value } = event.originalEvent.data;
+//   // if (!domains.includes(event.origin))
+//   //   return;
 
-    if (action == "save") {
-      console.log('colleen', action)
-      window.localStorage.setItem(key, JSON.stringify(value));
-    } else if (action == "get") {
-      console.log('colleen', action)
-      let sentvalue = window.localStorage.getItem(key);
-      event.source.postMessage(
-        {
-          action: "returnData",
-          key,
-          sentvalue
-        },
-        "*"
-      );
-    } else if (action == "returnData") {
-      let value2 = window.localStorage.getItem(key);
-      console.log("FROM RETURN DATA", key, value2);
-    }
-});
+//     if (action == "save") {
+//       console.log('colleen', action)
+//       window.localStorage.setItem(key, JSON.stringify(value));
+//     } else if (action == "get") {
+//       console.log('colleen', action)
+//       let sentvalue = window.localStorage.getItem(key);
+//       event.source.postMessage(
+//         {
+//           action: "returnData",
+//           key,
+//           sentvalue
+//         },
+//         "*"
+//       );
+//     } else if (action == "returnData") {
+//       let value2 = window.localStorage.getItem(key);
+//       console.log("FROM RETURN DATA", key, value2);
+//     }
+// });
 
  
 
 
-function handleMessage(event){
+// function handleMessage(event){
  
   
-}
+// }
 
 function handleToggleResume() {
   $("#view-resume-btn").click(function() {
